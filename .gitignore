@@ -1,4 +1,4 @@
-/node_modules
-/public
+node_modules/
+logs/
 .ftpconfig
 .ftpignore
