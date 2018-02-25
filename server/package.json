@@ -1,0 +1,21 @@
+{
+    "dependencies": {
+        "bulma": "^0.6.2",
+        "express": "^4.16.2",
+        "mysql": "^2.15.0",
+        "csv-generate": "^2.0.2",
+        "csv-parse": "^2.0.4",
+        "csv-stringify": "^2.0.4",
+        "express-winston": "^2.5.0",
+        "joi": "^13.1.2",
+        "lodash": "^4.17.5",
+        "mailgun-js": "^0.16.0",
+        "moment": "^2.20.1",
+        "nodemailer": "^4.6.0",
+        "split2": "^2.2.0",
+        "stream-transform": "^1.0.2",
+        "winston": "^2.4.0",
+        "node-sass": "^4.7.2",
+        "node-sass-chokidar": "^0.0.3"
+    }
+}
