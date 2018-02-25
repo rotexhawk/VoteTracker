@@ -9,19 +9,19 @@
     "scripts": {
         "client": "cd client && yarn start",
         "server": "nodemon --ignore server/assets -w server --exec \"babel-node --presets babel-preset-env server\"",
-        "build-css":
-            "node-sass-chokidar --include-path ./client --include-path ./node_modules client/src/sass/ -o client/src/css/",
-        "watch-css":
-            "npm run build-css && node-sass-chokidar --include-path ./client --include-path ./node_modules client/src/sass/ -o client/src/css/ --watch --recursive",
+        "build-css": "node-sass-chokidar --include-path ./client --include-path ./node_modules client/src/sass/ -o client/src/css/",
+        "watch-css": "npm run build-css && node-sass-chokidar --include-path ./client --include-path ./node_modules client/src/sass/ -o client/src/css/ --watch --recursive",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\" \"yarn watch-css\"",
         "build": "babel src -D -d dist --presets es2015"
     },
-
     "devDependencies": {
         "babel-core": "^6.26.0",
         "babel-preset-env": "^1.6.1",
         "babel-preset-react": "^6.24.1",
         "concurrently": "^3.5.1",
         "nodemon": "^1.14.11"
+    },
+    "dependencies": {
+        "helmet": "^3.11.0"
     }
 }
