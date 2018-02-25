@@ -1,0 +1,119 @@
+@import 'bulma/bulma';
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.App-title {
+    font-size: 1.5em;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+body,
+html {
+    background: #f7f7f7;
+}
+.vt-form {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 0 0 3px 3px;
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.31);
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.31);
+    min-height: 70vh;
+}
+.select-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    .select {
+        margin-bottom: 40px;
+        margin: 0px 30px 40px 30px;
+    }
+}
+
+.app-container {
+    padding-top: 0;
+}
+.label {
+    white-space: nowrap;
+}
+.file-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    align-items: center;
+    margin: 0 auto;
+    .field {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 350px;
+        padding: 1.5rem 0;
+    }
+    .label {
+        margin-right: 30px;
+    }
+}
+
+input[type='submit'] {
+    min-width: 300px;
+    min-height: 50px;
+    font-weight: bold;
+}
+
+.field.has-submit {
+    justify-content: center;
+}
+.csv-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .field {
+        justify-content: space-between;
+        padding: 2rem;
+        &:last-of-type {
+            flex: 1;
+        }
+    }
+}
+
+.message-header {
+    padding: 0.5rem;
+    h3 {
+        display: block;
+        margin: 0 auto;
+        float: none;
+        font-weight: 500;
+    }
+}
+.message-body {
+    padding: 2rem;
+}
+.block-normal {
+    margin-bottom: 1.5rem;
+}
