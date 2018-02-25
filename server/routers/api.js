@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import Mailer from '../utils/Mailer';
-import { VotesController, TransformCSV, CSVProcessor, Reader } from '../controllers/VotesController';
+import { VotesController, TransformCSV, CSVProcessor, Reader } from '../controllers/';
 import { getFilteredCSVS, toFormElm } from '../utils';
 
 export default () => {
