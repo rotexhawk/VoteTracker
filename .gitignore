@@ -1,7 +1,11 @@
 node_modules/
 logs/
-public/filtered_csv/*
-public/raw_csv/*
+public/csvs/raw/*
+!public/csvs/raw/.gitkeep
+
+public/csvs/processed/*
+!public/csvs/processed/.gitkeep 
+
 .ftpconfig
 .ftpignore
 
