@@ -1,8 +1,11 @@
 node_modules/
 logs/*
+
+# CSVS - Large Files
 public/csvs/raw/*
 public/csvs/processed/*
 
+# Atom SFTP Files
 .ftpconfig
 .ftpignore
 
