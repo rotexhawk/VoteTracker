@@ -1,7 +1,7 @@
 import Reader from './Reader';
-import CSVProcessor from './CSVProcessor';
+import Validator from './Validator';
 import RowMapper from './RowMapper';
-import TransformCSV from './TransformCSV';
+import Transformer from './Transformer';
 import VotesController from './VotesController';
 
-export { Reader, CSVProcessor, RowMapper, TransformCSV, VotesController };
+export { Reader, Validator, RowMapper, Transformer, VotesController };

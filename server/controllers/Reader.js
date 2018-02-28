@@ -10,7 +10,7 @@ export default class Reader {
     }
 
     setReadPath(file) {
-        this.readPath = path.join(__dirname, '../../', 'public/raw_csv/', file);
+        this.readPath = path.join(__dirname, '../../', 'public/csvs/raw', file);
     }
 
     getReadPath() {
@@ -18,7 +18,7 @@ export default class Reader {
     }
 
     setWritePath(file) {
-        this.writePath = path.join(__dirname, '../../', 'public/filtered_csv/', file);
+        this.writePath = path.join(__dirname, '../../', 'public/csvs/processed', file);
     }
 
     getWritePath() {

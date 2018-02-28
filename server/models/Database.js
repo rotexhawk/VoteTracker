@@ -1,14 +1,15 @@
-import { mysqlConnection as mysql } from '../connections';
+import { pool, mysql } from '../connections';
 
 export default class Database {
     constructor(table) {
         this.table = table;
+        this.pool = pool;
         this.mysql = mysql;
     }
 
     query(sql, args) {
         return new Promise((resolve, reject) => {
-            this.mysql.getConnection((err, conn) => {
+            this.pool.getConnection((err, conn) => {
                 if (err) throw err;
                 conn.query(sql, args, (err, rows) => {
                     if (err) return reject(err);
@@ -21,28 +22,21 @@ export default class Database {
 
     close() {
         return new Promise((resolve, reject) => {
-            this.mysql.end(err => {
+            this.pool.end(err => {
                 if (err) return reject(err);
                 resolve();
             });
         });
     }
 
-    async tableExists() {
-        const sql = 'SHOW TABLES LIKE ?';
-        var dbResults = await this.query(sql, [this.table]);
-        return dbResults.length > 0;
-    }
     escape(sql) {
-        return this.mysql.escape(sql);
+        return this.pool.getConnection((err, conn) => {
+            if (err) throw error;
+            return conn.format(sql);
+        });
     }
 
-    format(str, args) {
-        return new Promise((resolve, reject) => {
-            this.mysql.getConnection((err, conn) => {
-                if (err) reject(err);
-                else resolve(conn.format(str, args));
-            });
-        });
+    format(sql, args) {
+        return this.mysql.format(sql, args);
     }
 }

@@ -3,12 +3,17 @@ import fs from 'fs';
 import readline from 'readline';
 import stream from 'stream';
 
-export function getFilteredCSVS() {
-    const folder = path.resolve(__dirname, '../../', 'public/filtered_csv');
+export function getFiles() {
+    const folder = path.resolve(__dirname, '../../', 'public/csvs/raw');
     return new Promise((resolve, reject) => {
         fs.readdir(folder, (err, files) => {
             if (err) reject(err);
-            resolve(files);
+            resolve(
+                files.filter(file => {
+                    let extension = file.substring(file.indexOf('.'));
+                    return extension === '.csv' || extension === '.txt';
+                })
+            );
         });
     });
 }

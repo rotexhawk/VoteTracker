@@ -4,7 +4,7 @@ import moment from 'moment';
 import fs from 'fs';
 import path from 'path';
 
-export default class CSVProcess {
+export default class Validator {
     constructor(data) {
         this.setSchema();
         this.setFields(data);
@@ -73,7 +73,7 @@ export default class CSVProcess {
             throw new ServerError(400, `Missing filename.`);
         }
         this.filename = filename.pop().value;
-        if (!fs.existsSync(path.join(__dirname, '../../', 'public/raw_csv/', this.filename))) {
+        if (!fs.existsSync(path.join(__dirname, '../../', 'public/csvs/raw', this.filename))) {
             throw new ServerError(400, `Filename ${this.filename} cannot be found on the server.`);
         }
     }

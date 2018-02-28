@@ -8,13 +8,13 @@ export default class Votes extends Database {
     }
 
     tableExists() {
-        return super.query(`SHOW TABLES LIKE ?`, [this.table]).then(rows => {
+        return super.query('SHOW TABLES LIKE ?', [this.table]).then(rows => {
             return rows.length > 0;
         });
     }
 
     createTable() {
-        const sql = `CREATE TABLE ${this.table} (
+        const sql = `CREATE TABLE ?? (
             id int(10) unsigned NOT NULL AUTO_INCREMENT,
             county varchar(255) DEFAULT NULL,
             race enum('B', 'I', 'W', 'A', 'T', 'O', 'U') NOT NULL,
@@ -33,16 +33,16 @@ export default class Votes extends Database {
         )`;
 
         return this.dropTable().then(() => {
-            return super.query(sql);
+            return super.query(super.format(sql, [this.table]));
         });
     }
 
-    dropTable(table) {
+    dropTable() {
         return super.query(`DROP Table IF EXISTS ${this.table}`);
     }
 
     importCSV(csv) {
-        const sql = `LOAD DATA INFILE '${csv}' INTO TABLE ${this.table}
+        const sql = `LOAD DATA INFILE ? INTO TABLE ${this.table}
         FIELDS TERMINATED BY ','
         OPTIONALLY ENCLOSED BY '"'
         LINES TERMINATED BY '\n'
@@ -56,9 +56,9 @@ export default class Votes extends Database {
 
         return this.tableExists().then(tableExists => {
             if (this.update && tableExists) {
-                return super.query(sql);
+                return super.query(sql, [csv, this.table]);
             }
-            return this.createTable().then(() => super.query(sql));
+            return this.createTable().then(() => super.query(sql, [csv, this.table]));
         });
     }
 }

@@ -7,6 +7,7 @@ export default class Election extends Database {
         this.votesTable = votesTable;
         this.setElectionType(electionType);
         this.electionDate = electionDate.format('YYYY-MM-DD');
+        this.table = 'elections';
     }
 
     setElectionType(type) {
@@ -20,7 +21,7 @@ export default class Election extends Database {
     }
 
     save() {
-        return super.query('SELECT * FROM elections where name = ?', [this.votesTable]).then(rows => {
+        return super.query('SELECT * FROM ?? where name = ?', [this.table, this.votesTable]).then(rows => {
             if (rows.length <= 0) {
                 return this.insertRow();
             }
@@ -34,16 +35,19 @@ export default class Election extends Database {
             name: this.votesTable,
             election_type: this.electionType,
             election_year: this.electionDate,
-            created_at: timeStamp,
-            updated_at: timeStamp
+            created_at: this.getTimeStamp(),
+            updated_at: this.getTimeStamp()
         };
-        let sql = 'INSERT INTO elections SET ?';
-        return super.query(sql, args);
+        let sql = 'INSERT INTO ?? SET ?';
+        return super.query(sql, [this.table, args]);
     }
 
     updateRow() {
-        const timeStamp = moment().format('YYYY-MM-DD HH:mm:ss');
-        let sql = 'UPDATE elections SET  updated_at = ? WHERE name = ?';
-        return super.query(sql, [timeStamp, this.votesTable]);
+        let sql = 'UPDATE ?? SET updated_at = ? WHERE name = ?';
+        return super.query(sql, [this.table, this.getTimeStamp(), this.votesTable]);
+    }
+
+    getTimeStamp() {
+        return moment().format('YYYY-MM-DD HH:mm:ss');
     }
 }
