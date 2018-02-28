@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { Transform } from 'stream';
 import parse from 'csv-parse';
+import folderPaths from '../config/paths.json';
 
 export default class Reader {
     constructor(file) {
@@ -10,7 +11,7 @@ export default class Reader {
     }
 
     setReadPath(file) {
-        this.readPath = path.join(__dirname, '../../', 'public/csvs/raw', file);
+        this.readPath = path.join(__dirname, '../../', folderPaths.raw, file);
     }
 
     getReadPath() {
@@ -18,7 +19,7 @@ export default class Reader {
     }
 
     setWritePath(file) {
-        this.writePath = path.join(__dirname, '../../', 'public/csvs/processed', file);
+        this.writePath = path.join(__dirname, '../../', folderPaths.processed, file);
     }
 
     getWritePath() {

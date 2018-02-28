@@ -1,0 +1,4 @@
+{
+    "raw": "public/csvs/raw",
+    "processed": "public/csvs/processed"
+}
