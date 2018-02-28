@@ -26,6 +26,23 @@ export default class Reader {
         return this.writePath;
     }
 
+    deleteFile(path) {
+        return new Promise((resolve, reject) => {
+            fs.unlink(path, err => {
+                if (err) return reject(err);
+                resolve(true);
+            });
+        });
+    }
+
+    deleteReadFile() {
+        return this.deleteFile(this.getReadPath());
+    }
+
+    deleteWriteFile() {
+        return this.deleteFile(this.getWritePath());
+    }
+
     getReadStream(opts) {
         return fs.createReadStream(this.getReadPath(), Object.assign({ encoding: 'utf8' }, opts));
     }

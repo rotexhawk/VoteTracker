@@ -8,7 +8,7 @@
     "license": "MIT",
     "scripts": {
         "client": "cd client && yarn start",
-        "server": "nodemon --ignore /assets -w index.js --exec \"babel-node --presets babel-preset-env index.js\"",
+        "server": "nodemon --ignore /assets -w ../ --exec \"babel-node --presets babel-preset-env index.js\"",
         "build-css":
             "node-sass-chokidar --include-path ../client --include-path ./node_modules ../client/src/sass/ -o ../client/src/css/",
         "watch-css":
