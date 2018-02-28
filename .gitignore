@@ -1,7 +1,7 @@
 node_modules/
 logs/
-public/filtered_csv/
-public/raw_csv/
+public/filtered_csv/*
+public/raw_csv/*
 .ftpconfig
 .ftpignore
 
