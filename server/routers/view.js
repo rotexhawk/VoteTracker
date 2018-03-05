@@ -2,13 +2,17 @@ import express from 'express';
 import path from 'path';
 
 export default () => {
-    const router = express.Router();
+	const router = express.Router();
 
-    router.use(express.static(path.join(__dirname, '../..', 'client', 'build')));
+	router.use(
+		express.static(path.join(__dirname, '../..', 'client', 'build'))
+	);
 
-    router.get('/', function(req, res) {
-        res.sendFile(path.join(__dirname, '../..', 'client', 'build', 'index.html'));
-    });
+	router.get('/', function(req, res) {
+		res.sendFile(
+			path.join(__dirname, '../..', 'client', 'build', 'index.html')
+		);
+	});
 
-    return router;
+	return router;
 };
