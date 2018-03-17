@@ -7,39 +7,34 @@
     "author": "Yasin Yaqoobi",
     "license": "MIT",
     "scripts": {
-        "client": "cd client && yarn start",
-        "server": "nodemon --ignore /assets -w ../ --exec \"babel-node --presets babel-preset-env index.js\"",
-        "build-css":
-            "node-sass-chokidar --include-path ../client --include-path ./node_modules ../client/src/sass/ -o ../client/src/css/",
-        "watch-css":
-            "npm run build-css && node-sass-chokidar --include-path ../client --include-path ./node_modules ../client/src/sass/ -o ../client/src/css/ --watch --recursive",
-        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\" \"yarn watch-css\"",
-        "build": "babel src -D -d dist --presets es2015"
+        "server": "nodemon --ignore tests -w ../ --exec \"babel-node --presets babel-preset-env index.js\"",
+        "build": "babel src -D -d dist --presets babel-preset-env",
+        "test": "jest"
     },
-
     "dependencies": {
         "bulma": "^0.6.2",
-        "express": "^4.16.2",
-        "mysql": "^2.15.0",
         "csv-generate": "^2.0.2",
         "csv-parse": "^2.0.4",
         "csv-stringify": "^2.0.4",
+        "express": "^4.16.2",
         "express-winston": "^2.5.0",
+        "helmet": "^3.11.0",
         "lodash": "^4.17.5",
         "mailgun-js": "^0.16.0",
         "moment": "^2.20.1",
-        "nodemailer": "^4.6.0",
-        "stream-transform": "^1.0.2",
-        "winston": "^2.4.0",
+        "mysql": "^2.15.0",
         "node-sass": "^4.7.2",
         "node-sass-chokidar": "^0.0.3",
-        "helmet": "^3.11.0"
+        "nodemailer": "^4.6.0",
+        "stream-transform": "^1.0.2",
+        "winston": "^2.4.0"
     },
     "devDependencies": {
         "babel-core": "^6.26.0",
         "babel-preset-env": "^1.6.1",
         "babel-preset-react": "^6.24.1",
         "concurrently": "^3.5.1",
+        "jest": "^22.4.2",
         "nodemon": "^1.14.11"
     }
 }
