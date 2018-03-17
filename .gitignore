@@ -3,6 +3,7 @@ logs/
 
 # CSVS - Large Files
 public/csvs/raw/*
+!public/csvs/raw/test00.csv
 public/csvs/processed/*
 
 # Atom SFTP Files
