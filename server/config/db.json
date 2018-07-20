@@ -2,8 +2,8 @@
     "mysql": {
         "host": "localhost",
         "user": "root",
-        "password": "nKDG<<VO*%#@C",
-        "database": "votetracker",
+        "password": "password",
+        "database": "db",
         "supportBigNumbers": true,
         "connectionLimit": 101,
         "waitForConnections": true
